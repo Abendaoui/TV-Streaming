@@ -4,7 +4,7 @@ import { ChannelGrid } from "@/components/ChannelGrid";
 import { NowPlaying } from "@/components/NowPlaying";
 
 const Index = () => {
-  const [selectedCountry, setSelectedCountry] = useState("US");
+  const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedChannel, setSelectedChannel] = useState<string | null>("1");
   const [progress, setProgress] = useState(85);
 

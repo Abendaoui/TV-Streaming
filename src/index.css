@@ -158,10 +158,30 @@ All colors MUST be HSL.
     --glow-primary: 270 80% 65% / 0.4;
   }
 }
+/* Apply this class to the container you want to style */
+.custom-scrollbar {
+    --scrollbar-width: 30px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 1rem;
+    width: .5rem
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #342447; 
+    border-radius: 10px; 
+    
+}
+
+.custom-scrollbar {
+    scrollbar-color: #342447 transparent; 
+    scrollbar-width: thin;
+}
+
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border font-mono;
   }
 
   body {
