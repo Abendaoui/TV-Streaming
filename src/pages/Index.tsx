@@ -3,9 +3,11 @@ import { CountryFilter } from "@/components/CountryFilter";
 import { ChannelGrid } from "@/components/ChannelGrid";
 import { NowPlaying } from "@/components/NowPlaying";
 
+const DEFAULT_COUNTRY_CODE = "IT";
+
 const Index = () => {
-  const [selectedCountry, setSelectedCountry] = useState(null);
-  const [selectedChannel, setSelectedChannel] = useState<string | null>("1");
+  const [selectedCountry, setSelectedCountry] = useState(DEFAULT_COUNTRY_CODE);
+  const [selectedChannel, setSelectedChannel] = useState<string | null>("US1");
   const [progress, setProgress] = useState(85);
 
   // Simulate progress
@@ -16,18 +18,24 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleSelectCountry = (code: string) => {
+        setSelectedCountry(code);
+        setSelectedChannel(null); // Reset selected channel upon country change
+    };
+
   return (
     <div className="flex h-screen w-full overflow-hidden bg-background dark">
       {/* Left Panel - Country Filter */}
       <CountryFilter
         selectedCountry={selectedCountry}
-        onSelectCountry={setSelectedCountry}
+        onSelectCountry={handleSelectCountry}
       />
 
       {/* Middle Panel - Channel Grid */}
       <ChannelGrid
-        selectedChannel={selectedChannel}
-        onSelectChannel={setSelectedChannel}
+        selectedCountry={selectedCountry} 
+                selectedChannel={selectedChannel}
+                onSelectChannel={setSelectedChannel}
       />
 
       {/* Right Panel - Now Playing */}

@@ -14,7 +14,7 @@ export function NowPlaying({
 }: NowPlayingProps) {
   return (
     <aside
-      className="relative flex w-[420px] flex-col overflow-hidden"
+      className="relative flex w-[970px] flex-col overflow-hidden"
       style={{
         backgroundImage: `url(${nowPlayingBg})`,
         backgroundSize: "cover",

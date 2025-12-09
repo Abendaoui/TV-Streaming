@@ -35,9 +35,11 @@ export function ChannelCard({
     >
       {/* Logo Area */}
       <div className="mb-4 flex h-24 items-center justify-center rounded-xl bg-secondary/30">
-        <span className="text-4xl font-bold text-foreground/80">
-          {channel.logo}
-        </span>
+        <img 
+          src={channel.logo} 
+          alt={`${channel.name} Logo`} 
+          className="h-full w-full object-contain" // You might need to adjust height/width
+        />
       </div>
 
       {/* Channel Info */}
