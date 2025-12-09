@@ -9,15 +9,60 @@ interface Country {
 }
 
 const countries: Country[] = [
-  { code: "IT", name: "Italy", channels: 89, flag: "🇮🇹" },
-  { code: "UA", name: "Ukraine", channels: 56, flag: "🇺🇦" },
-  { code: "BR", name: "Brazil", channels: 124, flag: "🇧🇷" },
-  { code: "DE", name: "Germany", channels: 98, flag: "🇩🇪" },
-  { code: "US", name: "United States", channels: 147, flag: "🇺🇸" },
-  { code: "FR", name: "France", channels: 112, flag: "🇫🇷" },
-  { code: "PT", name: "Portugal", channels: 67, flag: "🇵🇹" },
-  { code: "ZA", name: "South Africa", channels: 45, flag: "🇿🇦" },
-  { code: "CN", name: "China", channels: 203, flag: "🇨🇳" },
+  {
+    code: "IT",
+    name: "Italy",
+    channels: 89,
+    flag: "https://flagcdn.com/w320/it.png",
+  },
+  {
+    code: "UA",
+    name: "Ukraine",
+    channels: 56,
+    flag: "https://flagcdn.com/w320/ua.png",
+  },
+  {
+    code: "BR",
+    name: "Brazil",
+    channels: 124,
+    flag: "https://flagcdn.com/w320/br.png",
+  },
+  {
+    code: "DE",
+    name: "Germany",
+    channels: 98,
+    flag: "https://flagcdn.com/w320/de.png",
+  },
+  {
+    code: "US",
+    name: "United States",
+    channels: 147,
+    flag: "https://flagcdn.com/w320/us.png",
+  },
+  {
+    code: "FR",
+    name: "France",
+    channels: 112,
+    flag: "https://flagcdn.com/w320/fr.png",
+  },
+  {
+    code: "PT",
+    name: "Portugal",
+    channels: 67,
+    flag: "https://flagcdn.com/w320/pt.png",
+  },
+  {
+    code: "ZA",
+    name: "South Africa",
+    channels: 45,
+    flag: "https://flagcdn.com/w320/za.png",
+  },
+  {
+    code: "CN",
+    name: "China",
+    channels: 203,
+    flag: "https://flagcdn.com/w320/cn.png",
+  },
 ];
 
 interface CountryFilterProps {
@@ -25,8 +70,11 @@ interface CountryFilterProps {
   onSelectCountry: (code: string) => void;
 }
 
-export function CountryFilter({ selectedCountry, onSelectCountry }: CountryFilterProps) {
-  const selectedCountryData = countries.find(c => c.code === selectedCountry);
+export function CountryFilter({
+  selectedCountry,
+  onSelectCountry,
+}: CountryFilterProps) {
+  const selectedCountryData = countries.find((c) => c.code === selectedCountry);
 
   return (
     <aside className="flex h-full w-64 flex-col bg-sidebar border-r border-border">
@@ -49,15 +97,23 @@ export function CountryFilter({ selectedCountry, onSelectCountry }: CountryFilte
                 "flex w-full items-center gap-4 rounded-xl px-4 py-3 transition-all duration-200",
                 selectedCountry === country.code
                   ? "bg-card border border-primary/30 shadow-lg"
-                  : "hover:bg-secondary/30"
+                  : "hover:bg-secondary/30",
               )}
             >
-              <span className="text-3xl">{country.flag}</span>
+              <img
+                src={country.flag}
+                alt={`${country.name} flag`}
+                className="h-10 w-10 rounded-full object-cover shadow-sm"
+              />
               <div className="flex flex-col items-start">
-                <span className={cn(
-                  "font-medium",
-                  selectedCountry === country.code ? "text-foreground" : "text-muted-foreground"
-                )}>
+                <span
+                  className={cn(
+                    "font-medium",
+                    selectedCountry === country.code
+                      ? "text-foreground"
+                      : "text-muted-foreground",
+                  )}
+                >
                   {country.name}
                 </span>
                 {selectedCountry === country.code && (

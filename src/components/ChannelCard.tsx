@@ -17,7 +17,12 @@ interface ChannelCardProps {
   onToggleFavorite: () => void;
 }
 
-export function ChannelCard({ channel, isSelected, onSelect, onToggleFavorite }: ChannelCardProps) {
+export function ChannelCard({
+  channel,
+  isSelected,
+  onSelect,
+  onToggleFavorite,
+}: ChannelCardProps) {
   return (
     <div
       onClick={onSelect}
@@ -25,19 +30,23 @@ export function ChannelCard({ channel, isSelected, onSelect, onToggleFavorite }:
         "group relative flex cursor-pointer flex-col rounded-2xl border p-4 transition-all duration-300",
         isSelected
           ? "border-primary/50 bg-card shadow-xl shadow-primary/10"
-          : "border-border bg-card/50 hover:border-border hover:bg-card hover:shadow-lg"
+          : "border-border bg-card/50 hover:border-border hover:bg-card hover:shadow-lg",
       )}
     >
       {/* Logo Area */}
       <div className="mb-4 flex h-24 items-center justify-center rounded-xl bg-secondary/30">
-        <span className="text-4xl font-bold text-foreground/80">{channel.logo}</span>
+        <span className="text-4xl font-bold text-foreground/80">
+          {channel.logo}
+        </span>
       </div>
 
       {/* Channel Info */}
       <div className="flex items-start justify-between">
         <div className="flex flex-col">
           <h3 className="font-semibold text-foreground">{channel.name}</h3>
-          <span className="text-sm text-muted-foreground">{channel.views} Views</span>
+          <span className="text-sm text-muted-foreground">
+            {channel.views} Views
+          </span>
         </div>
         <button
           onClick={(e) => {
@@ -46,10 +55,14 @@ export function ChannelCard({ channel, isSelected, onSelect, onToggleFavorite }:
           }}
           className={cn(
             "transition-colors",
-            channel.isFavorite ? "text-accent" : "text-muted-foreground hover:text-accent"
+            channel.isFavorite
+              ? "text-accent"
+              : "text-muted-foreground hover:text-accent",
           )}
         >
-          <Star className={cn("h-5 w-5", channel.isFavorite && "fill-current")} />
+          <Star
+            className={cn("h-5 w-5", channel.isFavorite && "fill-current")}
+          />
         </button>
       </div>
 
@@ -60,9 +73,9 @@ export function ChannelCard({ channel, isSelected, onSelect, onToggleFavorite }:
             key={badge}
             className={cn(
               "rounded px-2 py-0.5 text-xs font-medium",
-              badge === "4K" 
-                ? "bg-primary/20 text-primary" 
-                : "bg-secondary text-secondary-foreground"
+              badge === "4K"
+                ? "bg-primary/20 text-primary"
+                : "bg-secondary text-secondary-foreground",
             )}
           >
             {badge}

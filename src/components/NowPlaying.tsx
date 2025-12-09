@@ -7,7 +7,11 @@ interface NowPlayingProps {
   progress: number;
 }
 
-export function NowPlaying({ currentTime, totalTime, progress }: NowPlayingProps) {
+export function NowPlaying({
+  currentTime,
+  totalTime,
+  progress,
+}: NowPlayingProps) {
   return (
     <aside
       className="relative flex w-[420px] flex-col overflow-hidden"
@@ -48,11 +52,16 @@ export function NowPlaying({ currentTime, totalTime, progress }: NowPlayingProps
         <div className="p-6">
           {/* Glass Card */}
           <div className="rounded-2xl border border-border/20 bg-card/40 p-6 backdrop-blur-xl">
-            <span className="text-sm text-muted-foreground">Now Playing...</span>
-            <h2 className="mt-2 text-3xl font-bold text-foreground">Animals and Nature</h2>
+            <span className="text-sm text-muted-foreground">
+              Now Playing...
+            </span>
+            <h2 className="mt-2 text-3xl font-bold text-foreground">
+              Animals and Nature
+            </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Big cat expert Boone Smith follows a strange trail of carnage and death to track cats in
-              Patagonia. He documents their behavior - from kittens to killers.
+              Big cat expert Boone Smith follows a strange trail of carnage and
+              death to track cats in Patagonia. He documents their behavior -
+              from kittens to killers.
             </p>
 
             {/* Progress Bar */}

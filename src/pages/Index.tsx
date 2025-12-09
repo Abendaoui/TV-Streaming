@@ -7,11 +7,11 @@ const Index = () => {
   const [selectedCountry, setSelectedCountry] = useState("US");
   const [selectedChannel, setSelectedChannel] = useState<string | null>("1");
   const [progress, setProgress] = useState(85);
-  
+
   // Simulate progress
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress(prev => prev >= 100 ? 0 : prev + 0.1);
+      setProgress((prev) => (prev >= 100 ? 0 : prev + 0.1));
     }, 1000);
     return () => clearInterval(interval);
   }, []);
